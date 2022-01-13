@@ -4,34 +4,52 @@
       v-bind:class="[
         'bg-cover fixed top-0 right-0 bottom-0 left-0 font-sans antialiased leading-normal',
         nightMode ? 'text-gray-100' : 'text-gray-900',
-        nightMode ? 'text-gray-100' : 'text-gray-900'
+        nightMode ? 'text-gray-100' : 'text-gray-900',
       ]"
       v-bind:style="{
-        backgroundImage: `url('${data.theme.backgroundImage.responsiveImage.base64}')`
+        backgroundImage: `url('${data.theme.backgroundImage.responsiveImage.base64}')`,
       }"
     >
       <div
         class="bg-cover fixed top-0 right-0 bottom-0 left-0"
         v-bind:style="{
-          backgroundImage: `url('${data.theme.backgroundImage.url}')`
+          backgroundImage: `url('${data.theme.backgroundImage.url}')`,
         }"
       >
         <div
-          class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0"
+          class="
+            max-w-4xl
+            flex
+            items-center
+            h-auto
+            lg:h-screen
+            flex-wrap
+            mx-auto
+            my-32
+            lg:my-0
+          "
         >
           <!--Main Col-->
           <div
             id="profile"
             v-bind:class="[
               'w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl opacity-75 mx-6 lg:mx-0',
-              nightMode ? 'bg-gray-900' : 'bg-white'
+              nightMode ? 'bg-gray-900' : 'bg-white',
             ]"
           >
             <div class="p-4 md:p-12 text-center lg:text-left">
               <!-- Image for mobile view-->
               <div class="block lg:hidden">
                 <datocms-image
-                  class="rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+                  class="
+                    rounded-full
+                    shadow-xl
+                    mx-auto
+                    -mt-16
+                    h-48
+                    w-48
+                    bg-cover bg-center
+                  "
                   :data="data.profile.photo.mobileImage"
                 />
               </div>
@@ -42,32 +60,48 @@
               <div
                 v-bind:class="[
                   'mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 opacity-25',
-                  `border-${data.theme.color}-500`
+                  `border-${data.theme.color}-500`,
                 ]"
               ></div>
               <p
-                class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"
+                class="
+                  pt-4
+                  text-base
+                  font-bold
+                  flex
+                  items-center
+                  justify-center
+                  lg:justify-start
+                "
               >
                 <span class="pr-4"
                   ><font-awesome-icon
                     icon="briefcase"
                     v-bind:class="[
                       'h-4 fill-current',
-                      `text-${data.theme.color}-700`
+                      `text-${data.theme.color}-700`,
                     ]"
                 /></span>
 
                 {{ data.profile.profession }}
               </p>
               <p
-                class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"
+                class="
+                  pt-2
+                  text-gray-600 text-xs
+                  lg:text-sm
+                  flex
+                  items-center
+                  justify-center
+                  lg:justify-start
+                "
               >
                 <span class="pr-4"
                   ><font-awesome-icon
                     icon="globe"
                     v-bind:class="[
                       'h-4 fill-current',
-                      `text-${data.theme.color}-700`
+                      `text-${data.theme.color}-700`,
                     ]"
                 /></span>
 
@@ -86,7 +120,7 @@
                   v-bind:class="[
                     'text-white font-bold py-2 px-4 rounded-full',
                     `bg-${data.theme.color}-700`,
-                    `hover:bg-${data.theme.color}-900`
+                    `hover:bg-${data.theme.color}-900`,
                   ]"
                 >
                   Get In Touch
@@ -94,7 +128,18 @@
               </div>
 
               <div
-                class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-center lg:justify-start"
+                class="
+                  mt-6
+                  pb-16
+                  lg:pb-0
+                  w-4/5
+                  lg:w-full
+                  mx-auto
+                  flex flex-wrap
+                  items-center
+                  justify-center
+                  lg:justify-start
+                "
               >
                 <a
                   v-for="profile in data.socials"
@@ -108,7 +153,7 @@
                     class=""
                     v-bind:class="[
                       'fill-current text-gray-600 ml-3 mr-3 lg:ml-0 lg:mr-5',
-                      `hover:text-${data.theme.color}-700`
+                      `hover:text-${data.theme.color}-700`,
                     ]"
                   />
                 </a>
@@ -134,6 +179,18 @@
               {{ nightMode ? "☀️" : "🌙" }}
             </button>
           </div>
+          <div class="absolute bottom-0 right-0 h-12 w-18 p-4 text-blue-600">
+            Photo by
+            <a
+              href="https://unsplash.com/@sumaidsingh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              >Sumaid pal Singh Bakshi</a
+            >
+            on
+            <a
+              href="https://unsplash.com/t/textures-patterns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              >Unsplash</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -149,13 +206,13 @@ export default {
   data() {
     return {
       nightMode: window.matchMedia("(prefers-color-scheme: dark)").matches,
-      data: null
+      data: null,
     };
   },
   methods: {
     toggleDayNight() {
       this.nightMode = !this.nightMode;
-    }
+    },
   },
   metaInfo() {
     if (!this || !this.data) {
@@ -224,8 +281,8 @@ export default {
           title
           base64
         }
-      `
+      `,
     });
-  }
+  },
 };
 </script>

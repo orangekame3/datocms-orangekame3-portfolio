@@ -11,7 +11,7 @@
       }"
     >
       <div
-        class="bg-cover fixed top-0 right-0 bottom-0 left-0"
+        class="bg-cover fixed top-0 right-0 bottom-0 left-0 overflow-auto"
         v-bind:style="{
           backgroundImage: `url('${data.theme.backgroundImage.url}')`,
         }"
@@ -21,19 +21,17 @@
             max-w-4xl
             flex
             items-center
-            h-auto
             lg:h-screen
             flex-wrap
             mx-auto
-            my-32
-            lg:my-0
+            my-auto
           "
         >
           <!--Main Col-->
           <div
             id="profile"
             v-bind:class="[
-              'w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl opacity-75 mx-6 lg:mx-0',
+              'w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl opacity-75 mx-6 lg:mx-0 ',
               nightMode ? 'bg-gray-900' : 'bg-white',
             ]"
           >
@@ -187,15 +185,12 @@
             </div>
           </div>
 
-          <div class="w-full lg:w-2/5">
-            <!-- Big profile image for side bar (desktop) -->
+          <div class="w-full lg:w-2/5 invisible lg:visible">
             <datocms-image
               :data="data.profile.photo.desktopImage"
               class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
             />
-            <!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
           </div>
-
           <!-- Pin to top right corner -->
           <div class="absolute top-0 right-0 h-12 w-18 p-4">
             <button
@@ -205,21 +200,21 @@
               {{ nightMode ? "☀️" : "🌙" }}
             </button>
           </div>
-          <div class="absolute bottom-0 right-0 h-12 w-18 p-4 text-blue-600">
-            Photo by
-            <a
-              href="https://unsplash.com/@sumaidsingh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-              >Sumaid pal Singh Bakshi</a
-            >
-            on
-            <a
-              href="https://unsplash.com/t/textures-patterns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-              >Unsplash</a
-            >
-          </div>
         </div>
       </div>
     </div>
+    <!-- <div class="absolute bottom-0 right-0 h-12 w-18 p-4 text-blue-600">
+      Photo by
+      <a
+        href="https://unsplash.com/@sumaidsingh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >Sumaid pal Singh Bakshi</a
+      >
+      on
+      <a
+        href="https://unsplash.com/t/textures-patterns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >Unsplash</a
+      >
+    </div> -->
   </div>
 </template>
 

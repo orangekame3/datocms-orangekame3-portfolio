@@ -158,6 +158,32 @@
                   />
                 </a>
               </div>
+              <a
+                v-for="profile in data.products"
+                class="link"
+                v-bind:href="profile.url"
+                :key="profile.name"
+              >
+                <p
+                  class="
+                    pt-4
+                    text-base
+                    font-bold
+                    flex
+                    items-center
+                    justify-center
+                    lg:justify-start
+                  "
+                >
+                  {{ profile.name }}
+                </p>
+                <div class="lg:w-2/5">
+                  <datocms-image
+                    :data="profile.image.productImage"
+                    class="rounded-none lg:rounded-lg shadow-2xl hidden"
+                  />
+                </div>
+              </a>
             </div>
           </div>
 
@@ -247,6 +273,15 @@ export default {
                 ...imageFields
               }
               mobileImage: responsiveImage(imgixParams: { w: 192, h: 192, fit: crop, crop: faces, auto: format }) {
+                ...imageFields
+              }
+            }
+          }
+          products:allProducts{
+            name
+            url
+            image {
+              productImage: responsiveImage(imgixParams: { w: 100, h: 100, fit: crop, crop: faces, auto: format }) {
                 ...imageFields
               }
             }
